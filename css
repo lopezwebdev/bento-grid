@@ -1,0 +1,412 @@
+:root{
+		--purple: #410f70;
+		--dk-purp: #220b4e;
+		--pink: #dbc8ff;
+		--pink2: #b691ff;
+		--skyblue: #00BFFF;
+		--blue: #2A52BE;
+		--neon-blue: #4D4DFF;
+		--white: #fff;
+		--gray: #bbb;
+		--black: #111;
+}
+
+body{
+	overflow: hidden;
+	font-family: 'Montserrat', sans-serif;
+}
+
+.wrapper{
+	background-image: linear-gradient(to top right,#120230,#1a0345,#3e0673);
+	height: 100vh;
+	width: 100vw;
+	outline: 30px solid var(--black);
+	opacity: .99;
+	filter: blur(20px);
+  -webkit-filter: blur(18px);
+	position: absolute;
+}
+
+.circle{
+	margin: 10px;
+	border-radius: 50%;
+	position: absolute;
+	z-index: -1;
+}
+
+.c1{
+	width: 12rem;
+	height: 12rem;
+	top: -15%;
+	left: 30%;
+	background-image: radial-gradient(circle at 70%,var(--neon-blue),var(--purple),hotpink,var(--black));
+	box-shadow: 15px 0px 50px var(--pink2);
+	animation: float1 12s infinite;
+}
+.c2{
+	width: 30rem;
+	height: 30rem;
+	right: -30%;
+	bottom: 20%;
+	background-image: radial-gradient(var(--dk-purp),var(--purple),var(--neon-blue),var(--skyblue));
+	opacity: .7;
+	animation: float2 15s infinite;
+}
+.c3{
+	width: 14rem;
+	height: 12rem;
+	bottom: -10%;
+	left: -5%;
+	background: hotpink;
+	animation: float3 10s infinite;
+}
+.dashboard-wrapper{
+	position: absolute;
+	top:50%;
+	left:50%;
+	transform:translate(-50%,-50%);
+	width: 100%;
+}
+
+.dashboard{
+	display: grid;
+	border-radius: 10px;
+	grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  grid-auto-rows: minmax(100px, auto);
+	padding: 15px;
+	width: 100%;
+	margin: 0;
+	position: relative;
+	scale: .8;
+	transition: .2s;
+}
+
+.profile{
+	display: none;
+}
+
+.schedule-table {
+  grid-column: 2 / 3;
+  grid-row: 1/4;
+	min-width: 300px;
+}
+.exercise-table {
+  grid-column: 3 / 4;
+  grid-row: 1/3;
+}
+.calories {
+  grid-column: 1;
+  grid-row: 1/3;
+}
+.personal-bests {
+  grid-column: 1;
+  grid-row: 3;
+}
+.challenges {
+  grid-column: 3;
+  grid-row: 3;
+}
+.activity-feed {
+  grid-column: 1/4;
+  grid-row: 4;
+}
+
+h2{
+	margin-left: 15px;
+}
+
+.icon-container{
+	display: inline-block;
+	background-color: #000;
+	color: #fff;
+	width:30px;
+	height: 30px;
+	margin-right: 10px;
+	border-radius: 5px;
+	text-align: center;
+	padding: 5px;
+}
+
+.schedule-table,.exercise-table,.calories,.personal-bests,.challenges,.activity-feed{
+	background-image: radial-gradient(rgba(0,0,0,0) 25%,rgba(20,20,20,0) 50%,rgba(100,100,100,.15)
+80%,rgba(255,255,255,.1));
+	border-top: solid 1px rgba(255,255,255,.2) ;
+	border-left: solid 1px rgba(255,255,255,.2) ;
+  border-radius: 10px;
+  transition: .3s;
+	color: #fff;
+}
+
+.schedule-table:hover,.exercise-table:hover,.calories:hover,.personal-bests:hover,.challenges:hover,.activity-feed:hover{
+	cursor: pointer;
+	transform: translate(0,-2%);
+	color: #fff;
+}
+
+/* Schedule Table */
+.schedule-table table{
+	width: 100%;
+	height: 80%;
+	margin: 0 auto;
+	text-align: center;
+	font-weight: 100;
+	border-radius: 20px;
+	position: relative;
+	top: 45%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+}
+.schedule-table th{
+	display: none;
+}
+.schedule-table td{
+	color: #fff;
+	font-weight: 700;
+	
+}
+
+.schedule-table tr td:first-child{
+	width: 100%;
+	display: block;
+	font-weight: 500;
+	font-size: 1.4rem;
+	color: var(--white);
+	letter-spacing: .75px;
+	padding: .5px;
+}
+
+.schedule-table tr td:nth-child(2),.schedule-table tr td:nth-child(3){
+	display: block;
+	font-weight: 300;
+}
+
+.schedule-table tr td:nth-child(3){
+	display: block;
+	margin-bottom: 15px;
+}
+
+.schedule-table tr:nth-child(2) td:nth-child(2),.schedule-table tr:nth-child(3) td:nth-child(2),.schedule-table tr:nth-child(4) td:nth-child(2),.schedule-table tr:nth-child(5) td:nth-child(2),.schedule-table tr:nth-child(6) td:nth-child(2){
+	letter-spacing: .5px;
+}
+
+.schedule-table tr:nth-child(2) td:nth-child(3),.schedule-table tr:nth-child(3) td:nth-child(3),.schedule-table tr:nth-child(4) td:nth-child(3),.schedule-table tr:nth-child(5) td:nth-child(3),.schedule-table tr:nth-child(6) td:nth-child(3){
+	font-weight: 300;
+	border-bottom: 1px solid #555;
+	margin-bottom: 25px;
+}
+
+.exercise-table tr:first-child th{
+	text-align: left;
+	padding-left: .5rem;
+	font-weight: 700;
+	font-size: 1.1rem;
+}
+
+.exercise-table tr:nth-child(2) td:first-child,.exercise-table tr:nth-child(3) td:first-child,.exercise-table tr:nth-child(4) td:first-child,.exercise-table tr:nth-child(5) td:first-child,.exercise-table tr:nth-child(6) td:first-child{
+	padding-right: 1rem;
+	height: 3rem;
+	font-weight: 300;
+	text-align: left;
+	padding-left: 12px;
+	vertical-align: middle;
+}
+
+.calories canvas{
+	text-align:center;
+}
+
+.calories div:nth-child(4){
+	display:none;
+}
+
+.calories div:nth-child(5),.calories div:nth-child(6){
+	position: relative;
+  margin: 0 0 10px 10px;
+	font-weight: 300;
+	color: #46cf46;
+	font-size: 1.05rem;
+}
+
+.calories div:nth-child(5) strong,.calories div:nth-child(6) strong{
+	color: #fff;
+	font-weight: 300;
+}
+
+.personal-bests ul,.challenges ul,.activity-feed ul{
+	list-style: none;
+	line-height: 2;
+	font-size: 1rem;
+	font-weight: 300;
+	color: #ddd;
+	
+}
+
+.personal-bests ul li span{
+	color: #46cf46
+}
+
+.challenges ul li:nth-child(2)::before{
+	content: "✔️";
+	text-align: center;
+	color: transparent;
+  text-shadow: 0 0 #46cf46;
+	margin-right: 20px;
+}
+.challenges ul li:first-child::before,.challenges ul li:nth-child(3)::before{
+	content: "✔️";
+	color: transparent;
+  text-shadow: 0 0 #888;
+	text-align: center;
+	margin-right: 20px;
+}
+
+
+
+.activity-feed ul li{
+	display: flex;
+	line-height: 70px;
+	border-bottom: solid 1px #555
+}
+
+.activity-feed ul li img{
+	border-radius: 50%;
+	margin-right: 20px;
+	margin-bottom: 10px;
+	margin-top: 10px;
+}
+
+.activity-feed ul li:first-child img{
+	background: #d2e7d6;
+}
+
+.activity-feed ul li:nth-child(2) img{
+	background: #C3B1E1;
+}
+
+.activity-feed ul li:nth-child(3) img{
+	background: #F8C8DC;
+}
+
+
+@keyframes float1{
+	 0% {
+    -webkit-transform: translateY(0px);
+    -moz-transform: translateY(0px);
+    -ms-transform: translateY(0px);
+    -o-transform: translateY(0px);
+    transform: translateY(0px); 
+  }
+  50% {
+    -webkit-transform: translateY(25px);
+    -moz-transform: translateY(25px);
+    -ms-transform: translateY(25px);
+    -o-transform: translateY(25px);
+    transform: translateY(25px);
+		width: 24%;
+		opacity: .7;
+  }
+}
+
+@keyframes float2{
+	 0% {
+    -webkit-transform: translateY(0px);
+    -moz-transform: translateY(0px);
+    -ms-transform: translateY(0px);
+    -o-transform: translateY(0px);
+    transform: translateY(0px); 
+  }
+  50% {
+    -webkit-transform: translateY(70px);
+    -moz-transform: translateY(70px);
+    -ms-transform: translateY(70px);
+    -o-transform: translateY(70px);
+    transform: translateY(70px); 
+		height: 75%;
+		width: 35%;
+		opacity: .5;
+  }
+}
+
+@keyframes float3{
+	 0% {
+    -webkit-transform: translateY(0px);
+    -moz-transform: translateY(0px);
+    -ms-transform: translateY(0px);
+    -o-transform: translateY(0px);
+    transform: translateY(0px); 
+  }
+  50% {
+    -webkit-transform: translateY(70px);
+    -moz-transform: translateY(70px);
+    -ms-transform: translateY(70px);
+    -o-transform: translateY(70px);
+    transform: translateY(70px); 
+  }
+}
+	
+	@media only screen and (max-width: 1250px) {
+		.dashboard {
+    scale: .46;
+		width: 200%;
+		left: -50%;
+	}
+		.schedule-table {
+  grid-column: 2 / 3;
+  grid-row: 1/4;
+	min-width: 300px;
+}
+.exercise-table {
+  grid-column: 3;
+  grid-row: 1/3;
+}
+.calories {
+  grid-column: 1;
+  grid-row: 1/3;
+}
+.personal-bests {
+  grid-column: 1;
+  grid-row: 3;
+}
+.challenges {
+  grid-column: 3;
+  grid-row: 3;
+}
+.activity-feed {
+  grid-column: 1/4;
+  grid-row: 4;
+}
+		
+	}
+	
+	@media only screen and (max-width: 630px) {
+	.dashboard {
+    scale: .5;
+		width: 50%;
+		left: 0;
+	}
+.schedule-table {
+  grid-column: 1/2;
+  grid-row: 1/3;
+}
+.exercise-table {
+  grid-column: 2;
+  grid-row: 2;
+}
+.calories {
+  grid-column: 2;
+  grid-row: 1;
+}
+.personal-bests {
+  grid-column: 1;
+  grid-row: 3;
+}
+.challenges {
+  grid-column: 2;
+  grid-row: 3;
+}
+.activity-feed {
+  grid-column: 1/3;
+  grid-row: 4;
+}
+	}
